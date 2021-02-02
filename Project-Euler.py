@@ -2,6 +2,8 @@
 # Sieve of Erastothenes (Prime Numbers Ultimate Program) - by monish
 # Will do Primality test,prime factors,generating primes upto root n etc. etc. all in one program 
 # ============================================================
+# I Could Post code from Problem 1 to 100 only as per Project Euler Policy of not spoiling problems.After 100th Problems Visit & Solve Problems on your own.
+# ============================================================
 #1. Multiples of 3 and 5
 counter = 0
 for i in range (1000):
@@ -155,4 +157,16 @@ for a in range(1, 1000):
                  break
 # ============================================================
 #10. Summation of primes
+n = 2000000
+sums = 0
+num_list=[False if i==0 or i==1 or (i>2 and i%2==0) else True for i in range(n+1) ]
+for i in range(3, int(n ** 0.5)+1, 2):
+    if(num_list[i]==True):
+        j = 0
+        for j in range(i*i, n+1,j+i):
+            num_list[j] = False
+for i in range(n+1):
+    if num_list[i]:
+        sums+=i
+print(sums)
 
